@@ -1,6 +1,6 @@
 {
   "name": "svg-color-cleaner",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A tool to parse, clean, and strip color attributes from an svg file.",
   "main": "lib/svg-color-cleaner.js",
   "scripts": {

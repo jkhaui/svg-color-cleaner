@@ -204,4 +204,39 @@ export default class SVGColorCleaner {
     // Returns the cleaned SVG string as a promise, if successful.
     return stringifiedSvg;
   };
+
+  setSvgColor = (svgString, color = this.FILL_COLOR) => {
+    const svg = `${svgString}`;
+
+    const svgNode = new DOMParser().parseFromString(svg, "text/html");
+    const pathList = svgNode.getElementsByTagName("path");
+
+    for (let i = 0; i < pathList.length; i++) {
+      const hasFillAttribute =
+        pathList[i].hasAttribute(this.FILL_ATTRIBUTE) ||
+        window
+          .getComputedStyle(pathList[i])
+          .getPropertyValue(this.FILL_ATTRIBUTE) !== "none";
+      const hasStrokeAttribute =
+        pathList[i].hasAttribute(this.STROKE_ATTRIBUTE) ||
+        window
+          .getComputedStyle(pathList[i])
+          .getPropertyValue(this.STROKE_ATTRIBUTE) !== "none";
+
+      if (hasFillAttribute) {
+        pathList[i].removeAttribute(FILL_ATTRIBUTE);
+        pathList[i].setAttribute("style", `fill: ${this.FILL_COLOR}`);
+      }
+
+      if (hasStrokeAttribute) {
+        pathList[i].removeAttribute(STROKE_ATTRIBUTE);
+        pathList[i].setAttribute("style", `stroke: ${this.STROKE_COLOR}`);
+      }
+    }
+    const serializer = new XMLSerializer();
+    const stringifiedSvg =
+      serializer.serializeToString(svgNode.getElementsByTagName("svg")[0]);
+
+    return stringifiedSvg;
+  };
 }
