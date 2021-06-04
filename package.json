@@ -1,0 +1,51 @@
+{
+  "name": "svg-color-cleaner",
+  "version": "1.0.0",
+  "description": "A tool to parse, clean, and strip color attributes from an svg file.",
+  "main": "lib/svg-color-cleaner.js",
+  "scripts": {
+    "dev": "webpack --progress --watch --env dev",
+    "dev-amd": "webpack --progress --watch --env dev --amd",
+    "build": "yarn && webpack --env dev && webpack --env dev --amd && webpack --env build && webpack --env build --amd",
+    "repl": "node -i -e \"$(< ./lib/svg-color-cleaner.js)\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkhaui/svg-color-cleaner"
+  },
+  "keywords": [
+    "webpack",
+    "es6",
+    "svg",
+    "cleaner",
+    "parser",
+    "xml",
+    "color",
+    "dom",
+    "manipulation"
+  ],
+  "author": "Jordan Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jkhaui/svg-color-cleaner/issues"
+  },
+  "homepage": "https://github.com/jkhaui/svg-color-cleaner",
+  "devDependencies": {
+    "@babel/cli": "7.12.10",
+    "@babel/core": "7.12.10",
+    "@babel/plugin-proposal-class-properties": "7.12.1",
+    "@babel/preset-env": "7.12.11",
+    "@babel/preset-react": "7.12.10",
+    "@babel/preset-typescript": "7.12.7",
+    "babel-jest": "26.6.3",
+    "babel-loader": "^8.0.0-beta.4",
+    "babel-plugin-add-module-exports": "1.0.4",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "cross-env": "7.0.3",
+    "jest": "26.6.3",
+    "mocha": "^4.0.1",
+    "webpack": "5.11.0",
+    "webpack-cli": "4.2.0",
+    "yargs": "^10.0.3"
+  }
+}
